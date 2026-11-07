@@ -1,0 +1,20 @@
+{
+  "name": "ankit-kumar-portfolio",
+  "version": "1.0.0",
+  "description": "3D Cyber Developer Portfolio of Ankit Kumar (IIT Roorkee)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "3d",
+    "threejs",
+    "webgl",
+    "developer",
+    "iit-roorkee"
+  ],
+  "author": "Ankit Kumar",
+  "license": "MIT"
+}
+
