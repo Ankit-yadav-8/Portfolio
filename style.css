@@ -158,53 +158,90 @@ body:hover .cursor-ring.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 32px;
+  padding: 16px 24px;
   pointer-events: none;
 }
 
 .cinematic-nav-container {
-  max-width: 1360px;
+  max-width: 1080px;
   width: 100%;
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center; /* Exactly centered navbar in the mid */
+  justify-content: center;
   pointer-events: none;
 }
 
 .cinematic-glass-dock {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 3px;
-  background: rgba(12, 8, 22, 0.88);
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(12, 7, 24, 0.72);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.32);
   border-radius: 9999px;
-  padding: 4px 6px;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 6px 8px 6px 20px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: auto;
+  position: relative;
 }
 
 .cinematic-glass-dock:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8);
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 24px rgba(168, 85, 247, 0.25);
 }
 
+/* Left Brand: Stylized "A" Monogram + Ankit Kumar */
+.dock-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.dock-brand:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.dock-brand-logo {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.85));
+  flex-shrink: 0;
+  display: block;
+}
+
+.dock-brand-name {
+  font-family: var(--font-display, 'Outfit', sans-serif);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Center Navigation Links */
 .dock-links-list {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 26px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .dock-link {
-  display: inline-block;
-  padding: 6px 15px;
-  border-radius: 6px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 4px;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -228,88 +265,56 @@ body:hover .cursor-ring.active {
   border: none !important;
   box-shadow: none !important;
   color: #ffffff !important;
-  font-weight: 700 !important;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.65);
+  font-weight: 600 !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.dock-right-actions {
+/* Glowing Neon Beam Under Active Nav Item along the bottom dock rim */
+.dock-link.active::after {
+  content: '';
   position: absolute;
-  right: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  pointer-events: auto;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(192, 132, 252, 0.3) 15%, #c084fc 35%, #ffffff 50%, #c084fc 65%, rgba(192, 132, 252, 0.3) 85%, transparent 100%);
+  box-shadow: 0 0 8px #c084fc, 0 0 18px rgba(168, 85, 247, 0.95), 0 -1px 6px rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  pointer-events: none;
 }
 
-.dock-sound-btn, .dock-resume-btn {
-  appearance: none;
-  -webkit-appearance: none;
-  background: rgba(16, 9, 32, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(168, 85, 247, 0.45);
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  color: #c084fc;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 0;
-  outline: none;
-}
-
-.dock-sound-btn:hover, .dock-resume-btn:hover {
-  color: #ffffff;
-  border-color: #ffffff;
-  background: rgba(168, 85, 247, 0.3);
-  box-shadow: 0 0 18px rgba(168, 85, 247, 0.85);
-  transform: translateY(-2px);
-}
-
-.dock-sound-btn svg, .dock-resume-btn svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.dock-sound-btn.muted svg {
-  opacity: 0.35;
-}
-
+/* Right Pill Button: Let's Talk ↗ */
 .dock-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 22px;
+  gap: 6px;
+  padding: 8px 20px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
-  border: 1px solid rgba(192, 132, 252, 0.55);
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  border: 1px solid rgba(255, 255, 255, 0.32);
   color: #ffffff;
   font-family: var(--font-main);
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.5), 0 4px 14px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 22px rgba(168, 85, 247, 0.65), 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .dock-cta-btn:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 0 35px rgba(168, 85, 247, 0.8), 0 8px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 32px rgba(168, 85, 247, 0.85), 0 6px 18px rgba(0, 0, 0, 0.5);
   border-color: #ffffff;
+  color: #ffffff;
 }
 
 .cta-arrow-glyph {
   font-size: 13px;
-  transition: transform 0.2s;
+  font-weight: 700;
+  transition: transform 0.2s ease;
 }
 
 .dock-cta-btn:hover .cta-arrow-glyph {
@@ -2701,8 +2706,12 @@ body:hover .cursor-ring.active {
   .rock-text-iit { font-size: 16px; }
   .rock-text-roorkee { font-size: 13px; }
 
-  .cinematic-nav-header { padding: 12px 18px; }
-  .dock-link { padding: 5px 11px; font-size: 11px; }
+  .cinematic-nav-header { padding: 12px 16px; }
+  .cinematic-glass-dock { padding: 5px 6px 5px 14px; }
+  .dock-links-list { gap: 14px; }
+  .dock-link { padding: 5px 2px; font-size: 12px; }
+  .dock-brand-name { font-size: 13px; }
+  .dock-cta-btn { padding: 6px 14px; font-size: 11.5px; }
 
   .timeline-row {
     grid-template-columns: 1fr;
@@ -2719,11 +2728,13 @@ body:hover .cursor-ring.active {
   .cinematic-cta-actions { flex-direction: column; width: 100%; }
   .btn-cinematic-primary, .btn-cinematic-glass { width: 100%; justify-content: center; }
   
-  .cinematic-nav-header { padding: 8px 12px; }
-  .cinematic-glass-dock { padding: 4px 8px; gap: 4px; }
-  .dock-link { padding: 4px 7px; font-size: 10px; }
-  .dock-cta-btn { padding: 6px 14px; font-size: 11px; }
-  .dock-sound-btn, .dock-resume-btn { display: none; }
+  .cinematic-nav-header { padding: 8px 10px; }
+  .cinematic-glass-dock { padding: 4px 6px 4px 10px; }
+  .dock-brand-name { display: none; }
+  .dock-links-list { gap: 8px; }
+  .dock-link { padding: 4px 2px; font-size: 10.5px; }
+  .dock-link.active::after { width: 28px; bottom: -5px; }
+  .dock-cta-btn { padding: 5px 12px; font-size: 11px; }
 
   .cinematic-portrait-viewport { max-width: 310px; height: 350px; }
   .portrait-stage-cluster { width: 250px; height: 310px; }

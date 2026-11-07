@@ -74,7 +74,23 @@
   <header class="cinematic-nav-header">
     <div class="cinematic-nav-container">
       <nav class="cinematic-glass-dock" id="cinematicDock">
-        <!-- Center Navigation Links -->
+        
+        <!-- Left: Delta "A" Logo + Brand Name -->
+        <a href="#hero" class="dock-brand" title="Ankit Kumar">
+          <svg class="dock-brand-logo" width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.5L3 21H8L12 13.5L16 21H21L12 2.5Z" fill="url(#dockLogoGrad)"/>
+            <defs>
+              <linearGradient id="dockLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e9d5ff"/>
+                <stop offset="35%" stop-color="#c084fc"/>
+                <stop offset="100%" stop-color="#9333ea"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="dock-brand-name">Ankit Kumar</span>
+        </a>
+
+        <!-- Center: Navigation Links -->
         <ul class="dock-links-list">
           <li><a href="#hero" class="dock-link active" data-nav="hero">Home</a></li>
           <li><a href="#about" class="dock-link" data-nav="about">About</a></li>
@@ -83,21 +99,14 @@
           <li><a href="#experience" class="dock-link" data-nav="experience">Experience</a></li>
           <li><a href="#achievements" class="dock-link" data-nav="achievements">Mentoring</a></li>
         </ul>
-      </nav>
 
-      <!-- Right Actions: Sound FX + Standalone "Let's Talk" Capsule -->
-      <div class="dock-right-actions">
-        <button class="dock-sound-btn" id="soundToggle" title="Toggle Sound FX">
-          <svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-        </button>
-        <button class="dock-resume-btn" id="openResumeBtn" title="View &amp; Print Resume">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </button>
+        <!-- Right: "Let's Talk ↗" Pill Button (All other buttons removed) -->
         <a href="#contact" class="dock-cta-btn" id="dockContactBtn">
           <span>Let's Talk</span>
           <span class="cta-arrow-glyph">↗</span>
         </a>
-      </div>
+
+      </nav>
     </div>
   </header>
 
